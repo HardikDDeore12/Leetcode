@@ -4,38 +4,64 @@ public:
         int m = nums1.size();
         int n = nums2.size();
 
-        vector<double> v;
         int i=0;
         int j=0;
+        int k=0;
+
+        double element1 , element2 =0;
+        int size = m+n;
+        int idx1 = (size/2)-1;
+        int idx2 = (size/2);
 
         while(i<m && j<n){
             if(nums1[i]<=nums2[j]){
-                v.push_back(nums1[i]);
+                if(k == idx1){
+                    element1 = nums1[i];
+                }
+                if(k == idx2){
+                    element2 = nums1[i];
+                }
                 i++;
+                k++;
             }else{
-                v.push_back(nums2[j]);
+                if(k == idx1){
+                    element1 = nums2[j];
+                }
+                if(k == idx2){
+                    element2 = nums2[j];
+                }
                 j++;
+                k++;
             }
         }
 
         while(i!=m){
-            v.push_back(nums1[i]);
+            if(k == idx1){
+                    element1 = nums1[i];
+                }
+                if(k == idx2){
+                    element2 = nums1[i];
+                }
             i++;
+            k++;
         }
 
         while(j!=n){
-            v.push_back(nums2[j]);
-            j++;
+            if(k == idx1){
+                    element1 = nums2[j];
+                }
+                if(k == idx2){
+                    element2 = nums2[j];
+                }
+                j++;
+                k++;
         }
 
-        int size = v.size();
+        
         if(size%2 == 0){
-            int a = size/2;
-            int b = a-1;
-            return (v[a] + v[b])/2;
+            return (element1+element2)/2;
         }else{
-            int a = size/2;
-            return v[a];
+            return element2;
         }
         return 0;
     }
