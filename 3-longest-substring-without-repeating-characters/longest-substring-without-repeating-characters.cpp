@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // Brute force approach TC = O(N^2)
     int lengthOfLongestSubstring(string s) {
         int n = s.length();
 
