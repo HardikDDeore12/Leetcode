@@ -2,42 +2,28 @@ class Solution {
 public:
     vector<string> result;
 
-    bool isValid(string& str) {
-        int count = 0;
-
-        for (char c : str) {
-            if (c == '(') {
-                count++;
-            } else {
-                count--;
-            }
-
-            if (count < 0) return false; 
-        }
-
-        return count == 0; 
-    }
-
-    void solve(string& curr, int n) {
+    void solve(string& curr, int open, int close, int n) {
         if (curr.length() == 2 * n) {
-            if (isValid(curr)) {
-                result.push_back(curr);
-            }
-            return; 
+            result.push_back(curr);
+            return;
         }
 
-        curr.push_back('(');
-        solve(curr, n);
-        curr.pop_back();
+        if (open < n) {
+            curr.push_back('(');
+            solve(curr, open + 1, close, n);
+            curr.pop_back(); 
+        }
 
-        curr.push_back(')');
-        solve(curr, n);
-        curr.pop_back(); 
+        if (close < open) {
+            curr.push_back(')');
+            solve(curr, open, close + 1, n);
+            curr.pop_back(); // Backtrack
+        }
     }
 
     vector<string> generateParenthesis(int n) {
         string curr = "";
-        solve(curr, n);
+        solve(curr, 0, 0, n); 
         return result;
     }
 };
