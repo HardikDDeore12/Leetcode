@@ -1,5 +1,6 @@
 class Solution {
 public:
+// brute force
     bool check(string& s, int i,int j){
         if(i>j){
             return true;
