@@ -12,9 +12,9 @@ public:
 
         for (int j = i; j < nums.size(); j++) {
             if (j > i && nums[j] == nums[j - 1]) continue; // Skip duplicate elements
-            temp.push_back(nums[j]);
-            solve(j + 1, nums, target - nums[j], temp);
-            temp.pop_back();
+            temp.push_back(nums[j]); //do
+            solve(j + 1, nums, target - nums[j], temp); //explore
+            temp.pop_back(); //undo
         }
     }
 
