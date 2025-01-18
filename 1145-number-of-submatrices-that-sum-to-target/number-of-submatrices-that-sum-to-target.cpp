@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int numSubmatrixSumTarget(std::vector<std::vector<int>>& matrix, int target) {
+    int numSubmatrixSumTarget(vector<vector<int>>& matrix, int target) {
         int m = matrix.size();
         int n = matrix[0].size();
 
