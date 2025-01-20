@@ -1,7 +1,7 @@
 class Solution {
 public:
     int t[501][501];
-    int solve(string s1, string s2, int i, int j){
+    int solve(string& s1, string& s2, int i, int j){
         int m = s1.length();
         int n = s2.length();
 
