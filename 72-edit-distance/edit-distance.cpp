@@ -16,7 +16,7 @@ public:
         }
 
         if(s1[i] == s2[j]){
-            return solve(s1,s2,i+1,j+1);
+            return t[i][j] = solve(s1,s2,i+1,j+1);
         }
 
         int Insert = 1 + solve(s1,s2,i,j+1);
