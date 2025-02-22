@@ -11,7 +11,7 @@ public:
         while (i <= j) {
             int mid = i + (j - i) / 2;
             if (nums[mid] >= target) {
-                j = mid - 1; 
+                j = mid - 1;  // move continuously towards left
             } else {
                 i = mid + 1;
             }
@@ -27,7 +27,7 @@ public:
         while (i <= j) {
             int mid = i + (j - i) / 2;
             if (nums[mid] <= target) {
-                i = mid + 1; 
+                i = mid + 1; // move continuously towards right
             } else {
                 j = mid - 1;
             }
